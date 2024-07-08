@@ -14,14 +14,17 @@ import java.util.List;
 public class Order{
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
+        @Column(name = "order_number")
         private String orderNumber;
         private String orderRefNumber;
         private String orderVersion;
         private Date orderCreationDate;
 
-        @OneToMany(mappedBy = "order",
-                orphanRemoval = true,
-                fetch = FetchType.LAZY,
-                cascade = CascadeType.ALL)
+        @OneToMany(
+                mappedBy = "order",
+                cascade = CascadeType.ALL,
+                fetch = FetchType.EAGER,
+                orphanRemoval = true
+        )
         private List<Product> Products;
 }

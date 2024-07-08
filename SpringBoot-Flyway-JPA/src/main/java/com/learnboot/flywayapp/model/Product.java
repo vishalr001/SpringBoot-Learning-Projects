@@ -9,16 +9,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "PRODUCT")
 public class Product{
-        @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
-        @Column(insertable=false, updatable=false)
-        private String orderNumber;
         private String productId;
         private String productType;
         private String SKU;
         private String price;
 
-        @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "orderNumber")
+        @ManyToOne(cascade = CascadeType.ALL)
+        @JoinColumn(name = "order_number", referencedColumnName = "order_number")
         private Order order;
 }

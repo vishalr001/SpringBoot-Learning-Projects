@@ -16,8 +16,4 @@ public class Product{
         private String productType;
         private String SKU;
         private String price;
-
-        @ManyToOne(cascade = CascadeType.ALL)
-        @JoinColumn(name = "order_number", referencedColumnName = "order_number")
-        private Order order;
 }

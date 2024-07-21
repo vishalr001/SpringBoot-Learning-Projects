@@ -1,8 +1,8 @@
 CREATE TABLE PRODUCT(
     id BIGINT AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    order_number VARCHAR(200) NOT NULL,
     product_id VARCHAR(200) NOT NULL,
     product_type VARCHAR(200) NOT NULL,
+    order_number_fk VARCHAR(200),
     sku VARCHAR(200) NOT NULL,
     price VARCHAR(200) NOT NULL
 );

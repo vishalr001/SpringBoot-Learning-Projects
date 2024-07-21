@@ -21,10 +21,9 @@ public class Order{
         private Date orderCreationDate;
 
         @OneToMany(
-                mappedBy = "order",
                 cascade = CascadeType.ALL,
-                fetch = FetchType.EAGER,
-                orphanRemoval = true
+                fetch = FetchType.EAGER
         )
+        @JoinColumn(name = "order_number_fk", referencedColumnName = "order_number")
         private List<Product> Products;
 }
